@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} ${outfit.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${playfair.variable} ${outfit.variable} h-full antialiased scroll-smooth overflow-x-hidden`}
     >
       <body className="min-h-full flex flex-col font-sans text-slate-900 bg-[#FAFAFA] overflow-x-hidden">
         {children}

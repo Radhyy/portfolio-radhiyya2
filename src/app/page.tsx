@@ -184,7 +184,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative min-h-screen w-full bg-[#f4f7f6] flex flex-col items-center pt-8 font-sans">
+    <main className="relative min-h-screen w-full bg-[#f4f7f6] flex flex-col items-center pt-8 font-sans overflow-x-hidden">
       {/* Header */}
       <header className="animate-fade-in opacity-0 [animation-delay:100ms] relative w-full max-w-[1300px] px-6 lg:px-16 mx-auto flex justify-between items-center z-50">
         <h1 className="text-2xl font-playfair font-medium italic text-slate-800 relative z-50">
