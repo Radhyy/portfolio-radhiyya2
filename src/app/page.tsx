@@ -9,6 +9,7 @@ interface Project {
   id: number;
   title: string;
   image: string;
+  detailImage?: string;
   tags: string[];
   description: string;
 }
@@ -135,10 +136,102 @@ const projects: Project[] = [
   }
 ];
 
+const cloudProjects: Project[] = [
+  {
+    id: 101,
+    title: "Deployment Laravel + Redis dengan Docker",
+    image: "/ProjectCloud/Deployment Laravel + Redis Menggunakan Docker/Deployment Laravel + Redis Menggunakan Docker.png",
+    detailImage: "/ProjectCloud/Deployment Laravel + Redis Menggunakan Docker/Deployment Laravel + Redis Menggunakan Docker2.png",
+    tags: ["Docker", "Laravel", "Redis", "Cloud"],
+    description: "Proyek deployment aplikasi Laravel dengan Redis sebagai cache layer menggunakan containerisasi Docker. Meliputi konfigurasi docker-compose, jaringan antar container, serta optimasi performa aplikasi berbasis cloud."
+  },
+  {
+    id: 102,
+    title: "Manajemen Branch & Merge Conflict dengan Git",
+    image: "/ProjectCloud/Manajemen Branch dan Penyelesaian Merge Conflict Menggunakan Git dan Lazygit/Manajemen Branch dan Penyelesaian Merge Conflict Menggunakan Git dan Lazygit.png",
+    detailImage: "/ProjectCloud/Manajemen Branch dan Penyelesaian Merge Conflict Menggunakan Git dan Lazygit/Manajemen Branch dan Penyelesaian Merge Conflict Menggunakan Git dan Lazygit2.png",
+    tags: ["Git", "Lazygit", "DevOps", "Version Control"],
+    description: "Praktik manajemen branch dan penyelesaian merge conflict menggunakan Git dan Lazygit. Mencakup strategi branching, resolusi konflik, dan alur kerja kolaborasi tim yang efisien."
+  },
+  {
+    id: 103,
+    title: "Website Profil Statis + Multi-Stage Docker + CI/CD",
+    image: "/ProjectCloud/Website profil Statis sederhana + Multi-Stage Docker + GitHub Actions/Website profil Statis sederhana + Multi-Stage Docker + GitHub Actions1.png",
+    detailImage: "/ProjectCloud/Website profil Statis sederhana + Multi-Stage Docker + GitHub Actions/Website profil Statis sederhana + Multi-Stage Docker + GitHub Actions2.png",
+    tags: ["Docker", "GitHub Actions", "CI/CD", "Static Site"],
+    description: "Membangun dan mendeploy website profil statis menggunakan Multi-Stage Docker build untuk mengoptimalkan ukuran image, serta GitHub Actions untuk pipeline CI/CD otomatis dari push ke deployment."
+  },
+  {
+    id: 104,
+    title: "Deploying Website with Load Balancer + NFS",
+    image: "/ProjectCloud/Deploying Website Use Load balancer + NFS/Deploying Website Use Load balancer + NFS1.png",
+    detailImage: "/ProjectCloud/Deploying Website Use Load balancer + NFS/Deploying Website Use Load balancer + NFS2.png",
+    tags: ["Load Balancer", "NFS", "Nginx", "Linux"],
+    description: "Implementasi deployment website menggunakan load balancer untuk distribusi traffic antar server, dikombinasikan dengan NFS (Network File System) untuk berbagi resource file secara terpusat antar node."
+  },
+  {
+    id: 105,
+    title: "Konfigurasi Web Server Menggunakan NGINX",
+    image: "/ProjectCloud/Konfiguration Webserver Using NGINX/Konfiguration Webserver Using NGINX1.png",
+    detailImage: "/ProjectCloud/Konfiguration Webserver Using NGINX/Konfiguration Webserver Using NGINX2.png",
+    tags: ["NGINX", "Web Server", "Linux", "Cloud"],
+    description: "Konfigurasi dan optimasi web server menggunakan NGINX sebagai reverse proxy dan static file server. Mencakup pengaturan virtual host, SSL termination, dan tuning performa untuk lingkungan produksi."
+  },
+  {
+    id: 106,
+    title: "Setup Home Lab STB Indihome ke Linux Server",
+    image: "/ProjectCloud/Setup Home Lab Stb Indihome To Use Linux Server/Setup Home Lab Stb Indihome To Use Linux Server1.png",
+    detailImage: "/ProjectCloud/Setup Home Lab Stb Indihome To Use Linux Server/Setup Home Lab Stb Indihome To Use Linux Server2.png",
+    tags: ["Linux", "Home Lab", "Server", "Debian"],
+    description: "Mengubah STB (Set-Top Box) Indihome menjadi Linux server fungsional untuk keperluan home lab. Meliputi instalasi sistem operasi Linux, konfigurasi jaringan, dan setup layanan server dasar."
+  },
+  {
+    id: 107,
+    title: "Deployment Laravel + MySQL & Cloudflare Tunnel",
+    image: "/ProjectCloud/Deployment Laravel + Mysql And Configuration Cloudflare Tunnel/Deployment Laravel + Mysql And Configuration Cloudflare Tunnel1.png",
+    detailImage: "/ProjectCloud/Deployment Laravel + Mysql And Configuration Cloudflare Tunnel/Deployment Laravel + Mysql And Configuration Cloudflare Tunnel2.png",
+    tags: ["Laravel", "MySQL", "Cloudflare", "Linux"],
+    description: "Deployment aplikasi Laravel dengan MySQL sebagai database, dikonfigurasi dengan Cloudflare Tunnel untuk akses publik yang aman tanpa membuka port langsung ke internet."
+  },
+  {
+    id: 108,
+    title: "Laravel Backend + Next.js Frontend via Cloudflare Tunnel",
+    image: "/ProjectCloud/Deployment Laravel Backend And Nextjs Frontend Using API And Setup Cloudflare Tunnel/Deployment Laravel Backend And Nextjs Frontend Using API And Setup Cloudflare Tunnel1.png",
+    detailImage: "/ProjectCloud/Deployment Laravel Backend And Nextjs Frontend Using API And Setup Cloudflare Tunnel/Deployment Laravel Backend And Nextjs Frontend Using API And Setup Cloudflare Tunnel2.png",
+    tags: ["Laravel", "Next.js", "API", "Cloudflare"],
+    description: "Deployment full-stack dengan Laravel sebagai REST API backend dan Next.js sebagai frontend, terintegrasi melalui Cloudflare Tunnel untuk keamanan dan aksesibilitas optimal."
+  },
+  {
+    id: 109,
+    title: "Node.js API untuk IoT Sensor + Cloudflare Tunnel",
+    image: "/ProjectCloud/Deployment Node Js Api For IOT Sensor And Configuration With Cloudflare Tunnel/Deployment Node Js Api For IOT Sensor And Configuration With Cloudflare Tunnel1.png",
+    detailImage: "/ProjectCloud/Deployment Node Js Api For IOT Sensor And Configuration With Cloudflare Tunnel/Deployment Node Js Api For IOT Sensor And Configuration With Cloudflare Tunnel2.png",
+    tags: ["Node.js", "IoT", "API", "Cloudflare"],
+    description: "Deployment Node.js REST API yang dirancang untuk menerima data dari sensor IoT, dikonfigurasi dengan Cloudflare Tunnel agar sensor dapat mengirim data secara aman dari mana saja."
+  },
+  {
+    id: 110,
+    title: "NodeJs + AI + Restforge + PostgreSQL di VPS",
+    image: "/ProjectCloud/Deployment NodeJs + Ai + Frontend Restforge + Postgresql In VPS With Cloudflare Tunnel/Deployment NodeJs + Ai + Frontend Restforge In VPS With Cloudflare Tunnel1.png",
+    detailImage: "/ProjectCloud/Deployment NodeJs + Ai + Frontend Restforge + Postgresql In VPS With Cloudflare Tunnel/Deployment NodeJs + Ai + Frontend Restforge In VPS With Cloudflare Tunnel2.png",
+    tags: ["Node.js", "AI", "PostgreSQL", "VPS"],
+    description: "Deployment stack lengkap di VPS: Node.js backend, integrasi AI, frontend Restforge, dan PostgreSQL sebagai database, semua diekspos aman menggunakan Cloudflare Tunnel."
+  },
+  {
+    id: 111,
+    title: "Docker Compose: MySQL + NGINX + Laravel + Redis",
+    image: "/ProjectCloud/Setup Docker Compose To Start Mysql + Web Server Nginx Laravel + Redis/Setup Docker Compose To Start Mysql + Web Server Nginx Laravel + Redis1.png",
+    detailImage: "/ProjectCloud/Setup Docker Compose To Start Mysql + Web Server Nginx Laravel + Redis/Setup Docker Compose To Start Mysql + Web Server Nginx Laravel + Redis2.png",
+    tags: ["Docker Compose", "MySQL", "NGINX", "Redis"],
+    description: "Setup Docker Compose untuk menjalankan stack lengkap: MySQL sebagai database, NGINX sebagai web server, Laravel sebagai aplikasi backend, dan Redis untuk caching — semua dalam satu environment terkontainerisasi."
+  }
+];
+
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showAllCloud, setShowAllCloud] = useState(false);
   const [activeTab, setActiveTab] = useState<"website" | "cloud">("website");
 
   useEffect(() => {
@@ -156,9 +249,10 @@ export default function Home() {
 
     document.querySelectorAll(".reveal-animate").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [showAllProjects, activeTab]);
+  }, [showAllProjects, showAllCloud, activeTab]);
 
   const displayedProjects = showAllProjects ? projects : projects.slice(0, 6);
+  const displayedCloudProjects = showAllCloud ? cloudProjects : cloudProjects.slice(0, 6);
 
   const techStack = [
     { name: "HTML", icon: "https://cdn.simpleicons.org/html5/E34F26" },
@@ -589,22 +683,66 @@ export default function Home() {
                   onClick={() => setShowAllProjects(true)}
                   className="reveal-animate opacity-0 translate-y-12 transition-all duration-1000 delay-[400ms] px-8 py-4 bg-slate-900 text-white rounded-full font-outfit font-medium hover:bg-blue-600 hover:shadow-[0_8px_30px_rgb(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
                 >
-                  Lihat Semuanya
+                  Show All
                   <ArrowRight size={18} />
                 </button>
               </div>
             )}
           </>
         ) : (
-          <div className="w-full flex flex-col items-center justify-center py-20 md:py-32 reveal-animate opacity-0 translate-y-12 transition-all duration-1000">
-            <div className="w-24 h-24 bg-slate-200 rounded-full flex items-center justify-center mb-6 shadow-inner">
-              <Cloud size={40} className="text-slate-500" />
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+              {displayedCloudProjects.map((project, index) => (
+                <div
+                  key={project.id}
+                  onClick={() => setSelectedProject(project)}
+                  className="reveal-animate opacity-0 translate-y-12 transition-all duration-1000 cursor-pointer group flex flex-col"
+                  style={{ transitionDelay: `${(index % 3) * 150 + 100}ms` }}
+                >
+                  <div className="relative bg-[#f6f7f9] border border-white/60 p-4 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 group-hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] group-hover:-translate-y-2 overflow-hidden">
+                    <div className="relative w-full aspect-[16/10] md:h-[260px] md:aspect-auto rounded-2xl overflow-hidden bg-slate-200">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="bg-white text-slate-900 px-6 py-3 rounded-full font-medium text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                          View Details
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-5 flex flex-col gap-3 px-2">
+                    <h4 className="text-lg font-outfit font-semibold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                      {project.title}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, i) => (
+                        <span key={i} className="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-full border border-blue-100">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h4 className="text-3xl font-outfit font-semibold text-slate-900 mb-4">Coming Soon</h4>
-            <p className="text-slate-600 text-center max-w-md text-lg">
-              I am currently gathering the screenshots and case studies for my Cloud Engineering projects. Stay tuned!
-            </p>
-          </div>
+
+            {/* Show All Cloud Button */}
+            {!showAllCloud && cloudProjects.length > 6 && (
+              <div className="mt-16 flex justify-center w-full">
+                <button
+                  onClick={() => setShowAllCloud(true)}
+                  className="reveal-animate opacity-0 translate-y-12 transition-all duration-1000 delay-[400ms] px-8 py-4 bg-slate-900 text-white rounded-full font-outfit font-medium hover:bg-blue-600 hover:shadow-[0_8px_30px_rgb(59,130,246,0.3)] hover:-translate-y-1 flex items-center gap-2"
+                >
+                  Show All
+                  <ArrowRight size={18} />
+                </button>
+              </div>
+            )}
+          </>
         )}
       </section>
 
@@ -700,8 +838,14 @@ export default function Home() {
             <button onClick={() => setSelectedProject(null)} className="absolute top-4 right-4 z-20 bg-white/80 hover:bg-white backdrop-blur-md p-2 rounded-full transition-all shadow-sm">
               <X size={20} className="text-slate-800" />
             </button>
-            <div className="w-full h-[250px] sm:h-[400px] relative bg-slate-100 shrink-0">
-              <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover object-top" />
+            <div className="w-full relative bg-slate-900 shrink-0 flex items-center justify-center">
+              <Image
+                src={selectedProject.detailImage ?? selectedProject.image}
+                alt={selectedProject.title}
+                width={900}
+                height={600}
+                className="w-full h-auto max-h-[60vh] object-contain"
+              />
             </div>
             <div className="p-8 sm:p-10 overflow-y-auto">
               <div className="flex flex-wrap gap-2 mb-4">
