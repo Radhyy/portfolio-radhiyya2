@@ -21,6 +21,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "Portfolio website",
+  icons: {
+    icon: "/logo.PNG",
+  },
 };
 
 export default function RootLayout({
