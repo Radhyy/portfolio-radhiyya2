@@ -981,6 +981,103 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Scattered Collage Section */}
+      <section className="relative w-full min-h-[80vh] md:min-h-[140vh] flex flex-col items-center justify-center py-10 md:py-56 overflow-hidden z-10 border-t border-slate-200/50 bg-[#f4f7f6]">
+        
+        {/* Central Text */}
+        <div className="relative z-20 flex flex-col items-center text-center px-6 max-w-2xl reveal-animate opacity-0 translate-y-12 transition-all duration-1000 pointer-events-none">
+          <h2 className="text-3xl md:text-4xl lg:text-[3.25rem] font-outfit font-semibold tracking-tight text-slate-900 mb-4 leading-tight">
+            On a quest to craft <br className="hidden md:block" />
+            something awesome
+          </h2>
+          <p className="text-lg md:text-xl lg:text-2xl font-playfair italic text-slate-500 mt-2">
+            to hone my skills or just for fun
+          </p>
+        </div>
+
+        {/* Scattered Images */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-10">
+          
+          {/* 1. Top Left Corner */}
+          <div className="absolute top-[18%] left-[-5%] md:top-[15%] md:left-[4%] w-[180px] md:w-[420px] transform -rotate-[12deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[100ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[0].image} alt="Project 1" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 2. Top Mid-Left */}
+          <div className="absolute top-[14%] left-[25%] md:top-[12%] md:left-[28%] w-[180px] md:w-[400px] transform rotate-[4deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[150ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[1].image} alt="Project 2" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 3. Top Mid-Right */}
+          <div className="absolute top-[16%] right-[5%] md:top-[14%] md:right-[28%] w-[180px] md:w-[420px] transform -rotate-[6deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[200ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[2].image} alt="Project 3" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 4. Top Right Corner (Picka Photobooth) */}
+          <div className="absolute top-[25%] right-[-25%] md:top-[18%] md:right-[5%] w-[180px] md:w-[440px] transform rotate-[10deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[250ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[3].image} alt="Project 4" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 5. Mid-Upper Far Left (Web Jatim) */}
+          <div className="absolute top-[35%] left-[-40%] md:top-[35%] md:left-[2%] w-[180px] md:w-[450px] transform rotate-[8deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[300ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[4].image} alt="Project 5" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 6. Mid-Lower Far Left (Z-Learn) */}
+          <div className="absolute top-[48%] left-[-35%] md:top-[55%] md:left-[2%] w-[180px] md:w-[400px] transform -rotate-[10deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[350ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[5].image} alt="Project 6" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 7. Mid-Upper Far Right */}
+          <div className="absolute top-[35%] right-[-35%] md:top-[32%] md:right-[2%] w-[180px] md:w-[460px] transform -rotate-[5deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[400ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[6].image} alt="Project 7" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 8. Mid-Lower Far Right (Assignment Management) */}
+          <div className="absolute top-[50%] right-[-35%] md:top-[52%] md:right-[2%] w-[180px] md:w-[430px] transform rotate-[12deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[450ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[7].image} alt="Project 8" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 9. Bottom Left Corner */}
+          <div className="absolute bottom-[18%] left-[-10%] md:bottom-[10%] md:left-[8%] w-[180px] md:w-[450px] transform rotate-[6deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[500ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[8].image} alt="Project 9" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 10. Bottom Mid (Watu Pari) */}
+          <div className="absolute bottom-[8%] left-[20%] md:bottom-[6%] md:left-[35%] w-[180px] md:w-[440px] transform -rotate-[3deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[550ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[9].image} alt="Project 10" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* 11. Bottom Right Corner (Dashboard) */}
+          <div className="absolute bottom-[15%] right-[-10%] md:bottom-[8%] md:right-[10%] w-[180px] md:w-[470px] transform rotate-[4deg] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:z-30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] pointer-events-auto rounded-xl md:rounded-[2rem] border-[6px] md:border-[12px] border-white shadow-xl bg-white reveal-animate opacity-0 translate-y-12 delay-[600ms] group p-1 md:p-2">
+            <div className="w-full h-auto overflow-hidden rounded-lg md:rounded-2xl">
+              <Image src={projects[10].image} alt="Project 11" width={800} height={600} className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* Project Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
