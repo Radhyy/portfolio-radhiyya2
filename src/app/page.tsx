@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowRight, Zap, Sparkles, Plus, Cloud, Mail } from "lucide-react";
+import { Menu, X, ArrowRight, Zap, Sparkles, Plus, Cloud, Mail, FileText } from "lucide-react";
 import ScrollRevealText from "../components/ScrollRevealText";
 
 interface Project {
@@ -12,6 +12,13 @@ interface Project {
   detailImage?: string;
   tags: string[];
   description: string;
+}
+
+interface Certificate {
+  id: number;
+  title: string;
+  file: string;
+  type: "image" | "pdf";
 }
 
 const projects: Project[] = [
@@ -227,12 +234,42 @@ const cloudProjects: Project[] = [
   }
 ];
 
+const certificates: Certificate[] = [
+  { id: 1, title: "Finalis Web Programming - SMART TELKOM", file: "/Sertifikat/SMART TELKOM FINALIS_Web Programing.jpg", type: "image" },
+  { id: 2, title: "Sefest Web Design", file: "/Sertifikat/Sefest Web Design-Radhiyya Alea Akbar.png", type: "image" },
+  { id: 3, title: "Juara 1 Pionering Tegak Tangguh", file: "/Sertifikat/Juara1PioneringLombaTegakTangguh.PNG", type: "image" },
+  { id: 4, title: "Lomba Baris Berbaris Pandawa - Juara Perintis 2", file: "/Sertifikat/Lomba Baris Berbaris Pandawa - Juara Perintis 2.png", type: "image" },
+  { id: 5, title: "Lomba Baris Berbaris Sejati - Juara Bina 2", file: "/Sertifikat/Lomba Baris Berbaris Sejati- Juara Bina 2.png", type: "image" },
+  { id: 6, title: "Olimpiade Informatika OSN 2025", file: "/Sertifikat/Olimpiade_Informatika - OSN 2025_page-0001.jpg", type: "image" },
+  { id: 7, title: "Olimpiade Informatika OSSN 2025", file: "/Sertifikat/Olimpiade_Informatika - OSSN 2025_page-0001.jpg", type: "image" },
+  { id: 8, title: "Olimpiade Informatika KOMPAS 2025", file: "/Sertifikat/Olimpiade_Informatika - KOMPAS 2025_page-0001.jpg", type: "image" },
+  { id: 9, title: "Olimpiade PKN OSN 2025", file: "/Sertifikat/Olimpiade_PKN - OSSN 2025 (1)_page-0001.jpg", type: "image" },
+  { id: 10, title: "Olimpiade PKN KOMPAS 2025", file: "/Sertifikat/Olimpiade_PKN - KOMPAS 2025_page-0001 (2).jpg", type: "image" },
+  { id: 11, title: "Olimpiade Sejarah OSN 2025", file: "/Sertifikat/Olimpiade_Sejarah - OSN 2025_page-0001.jpg", type: "image" },
+  { id: 12, title: "Olimpiade Sejarah KOMPAS 2025", file: "/Sertifikat/Olimpiade_Sejarah - KOMPAS 2025_page-0001.jpg", type: "image" },
+  { id: 13, title: "Coursera: AWS S3 Basic", file: "/Sertifikat/Coursera Aws S3 Basic Certificates.jpg", type: "image" },
+  { id: 14, title: "Coursera: Build App With Google Sheets On Glide", file: "/Sertifikat/Coursera Build App With Google Sheets On Glide Certificates.jpg", type: "image" },
+  { id: 15, title: "Coursera: Build a Full Website Using Wordpress", file: "/Sertifikat/Coursera Build a Full Website Using Wordprees Certificates.jpg", type: "image" },
+  { id: 16, title: "Coursera: Google Ads", file: "/Sertifikat/Coursera Google Ads Certificates.jpg", type: "image" },
+  { id: 17, title: "Coursera: Microsoft Excel", file: "/Sertifikat/Coursera Microsoft Excel Certificates.jpg", type: "image" },
+  { id: 18, title: "Coursera: SEO Optimization", file: "/Sertifikat/Coursera SEO Optimazion Certificates.jpg", type: "image" },
+  { id: 19, title: "Pelatihan Artificial Intelligence", file: "/Sertifikat/Pelatihan Artifisial Intelegent.jpg", type: "image" },
+  { id: 20, title: "Pelatihan Cyber Security", file: "/Sertifikat/Sertifikat Attendance Pelatihan Cyber Security.pdf.png", type: "image" },
+  { id: 21, title: "Microsoft Azure", file: "/Sertifikat/Microsoft Azure Certificates.pdf", type: "pdf" },
+  { id: 22, title: "Computational Thinking", file: "/Sertifikat/Sertifikat_RADHIYYA ALEA AKBAR_Computational Thinking _ Cara Berpikir Logis untuk Mengatasi Masalah (Jenjang SMA).pdf", type: "pdf" },
+  { id: 23, title: "Dasar-Dasar Implementasi Kecerdasan Artifisial", file: "/Sertifikat/Sertifikat_RADHIYYA ALEA AKBAR_Dasar-Dasar Implementasi Kecerdasan Artifisial.pdf", type: "pdf" },
+  { id: 24, title: "Memahami Aspek Pengembangan Produk AI", file: "/Sertifikat/Sertifikat_RADHIYYA ALEA AKBAR_Memahami Aspek Pengembangan Produk AI.pdf", type: "pdf" },
+  { id: 25, title: "Wordpress Certificates", file: "/Sertifikat/Wordpress Certivicates.pdf", type: "pdf" },
+];
+
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCloud, setShowAllCloud] = useState(false);
   const [activeTab, setActiveTab] = useState<"website" | "cloud">("website");
+  const [showAllCertificates, setShowAllCertificates] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -249,10 +286,11 @@ export default function Home() {
 
     document.querySelectorAll(".reveal-animate").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [showAllProjects, showAllCloud, activeTab]);
+  }, [showAllProjects, showAllCloud, activeTab, showAllCertificates]);
 
   const displayedProjects = showAllProjects ? projects : projects.slice(0, 6);
   const displayedCloudProjects = showAllCloud ? cloudProjects : cloudProjects.slice(0, 6);
+  const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, 6);
 
   const techStack = [
     { name: "HTML", icon: "https://cdn.simpleicons.org/html5/E34F26" },
@@ -747,6 +785,69 @@ export default function Home() {
       </section>
 
       {/* About Me Section */}
+      {/* Certificates Section */}
+      <section id="certificates" className="relative w-full max-w-[1300px] px-6 lg:px-16 mx-auto pt-12 pb-32 flex flex-col items-center justify-center z-20">
+        <h3 className="text-2xl md:text-3xl font-playfair italic font-medium text-slate-800 mb-2 reveal-animate opacity-0 translate-y-12 transition-all duration-1000">
+          Achievements
+        </h3>
+        <h2 className="text-4xl md:text-[3.5rem] font-outfit font-medium tracking-tight text-slate-900 mb-16 reveal-animate opacity-0 translate-y-12 transition-all duration-1000 delay-[200ms]">
+          My Certificates
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+          {displayedCertificates.map((cert, index) => (
+            <div 
+              key={cert.id} 
+              onClick={() => setSelectedCertificate(cert)}
+              className={`reveal-animate opacity-0 translate-y-12 transition-all duration-1000 cursor-pointer group flex flex-col`}
+              style={{ transitionDelay: `${(index % 3) * 150 + 100}ms` }}
+            >
+              <div className="relative bg-[#f6f7f9] border border-white/60 p-4 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 group-hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] group-hover:-translate-y-2 overflow-hidden">
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200">
+                  {cert.type === "image" ? (
+                    <Image 
+                      src={cert.file} 
+                      alt={cert.title} 
+                      fill 
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 group-hover:scale-105 transition-transform duration-700 text-slate-400">
+                      <FileText size={48} strokeWidth={1.5} className="mb-2 text-blue-400/70" />
+                      <span className="text-sm font-medium text-slate-500">PDF Document</span>
+                    </div>
+                  )}
+                  
+                  <div className="absolute inset-0 z-20 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white text-slate-900 px-6 py-3 rounded-full font-medium text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                      View Certificate
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-col gap-2 px-2 text-center">
+                <h4 className="text-lg font-outfit font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  {cert.title}
+                </h4>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {!showAllCertificates && certificates.length > 6 && (
+          <div className="mt-16 flex justify-center w-full">
+            <button 
+              onClick={() => setShowAllCertificates(true)}
+              className="reveal-animate opacity-0 translate-y-12 transition-all duration-1000 delay-[400ms] px-8 py-4 bg-slate-900 text-white rounded-full font-outfit font-medium hover:bg-blue-600 hover:shadow-[0_8px_30px_rgb(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
+            >
+              Show All
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
+      </section>
+
       <section id="about" className="relative w-full max-w-[1300px] px-6 lg:px-16 mx-auto pt-12 pb-32 flex flex-col items-center justify-center z-20">
         <h3 className="text-2xl md:text-3xl font-playfair italic font-medium text-slate-800 mb-2 reveal-animate opacity-0 translate-y-12 transition-all duration-1000">
           Who am i
@@ -830,6 +931,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Elevra Promotion Section */}
+      <section id="services" className="relative w-full max-w-[1300px] px-6 lg:px-16 mx-auto pt-16 pb-32 flex flex-col items-center justify-center z-20 border-t border-slate-200/50">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-24 w-full max-w-[1100px] mx-auto">
+          
+          {/* Left: Text Promotion */}
+          <div className="w-full lg:w-[50%] reveal-animate opacity-0 translate-y-12 transition-all duration-1000 delay-[200ms] flex flex-col items-start text-left">
+            <h2 className="text-4xl md:text-5xl font-outfit font-medium tracking-tight text-slate-900 mb-6 leading-tight">
+              Bring Your Ideas to Life with <span className="font-playfair italic">Elevra Digitalera</span>
+            </h2>
+            <p className="text-[17px] md:text-lg text-slate-600 leading-relaxed font-outfit mb-10">
+              Need a professional, modern, and high-performing website? Elevra Digitalera offers premium web development services tailored to your business needs. Elevate your brand&apos;s digital presence today.
+            </p>
+            
+            <a 
+              href="https://elevra-digitalera.netlify.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-full font-outfit font-medium hover:bg-blue-600 hover:shadow-[0_8px_30px_rgb(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-300"
+            >
+              Visit Elevra Digitalera
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+
+          {/* Right: Tilted Photo Frame */}
+          <div className="w-full lg:w-[50%] reveal-animate opacity-0 translate-y-12 transition-all duration-1000 delay-[400ms] lg:delay-[400ms]">
+            <a 
+              href="https://elevra-digitalera.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative p-3 bg-white border border-slate-100 rounded-[2rem] shadow-[0_20px_50px_rgb(0,0,0,0.06)] transform rotate-3 hover:rotate-0 active:rotate-0 hover:shadow-[0_20px_50px_rgb(59,130,246,0.3)] active:shadow-[0_20px_50px_rgb(59,130,246,0.3)] transition-all duration-500 group"
+            >
+              <div className="relative p-2 border-2 border-slate-100 rounded-3xl bg-white overflow-hidden">
+                <div className="relative w-full aspect-[4/3] md:aspect-[16/10] rounded-2xl overflow-hidden bg-slate-200">
+                  <Image 
+                    src="/ELEVRA-LANDINGPAGE.png" 
+                    alt="Elevra Digitalera Landing Page" 
+                    fill 
+                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  {/* Subtle Glow Overlay */}
+                  <div className="absolute inset-0 bg-blue-400/0 group-hover:bg-blue-400/10 transition-colors duration-500"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
       {/* Project Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -857,6 +1008,49 @@ export default function Home() {
               </div>
               <h3 className="text-3xl sm:text-4xl font-outfit font-semibold text-slate-900 mb-6">{selectedProject.title}</h3>
               <p className="text-slate-600 text-[15px] leading-relaxed max-w-2xl">{selectedProject.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Certificate Modal */}
+      {selectedCertificate && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity" onClick={() => setSelectedCertificate(null)}></div>
+          <div className="relative bg-white w-full max-w-4xl rounded-[2rem] overflow-hidden shadow-2xl z-10 animate-fade-in-up flex flex-col max-h-[90vh]">
+            <button onClick={() => setSelectedCertificate(null)} className="absolute top-4 right-4 z-20 bg-white/80 hover:bg-white backdrop-blur-md p-2 rounded-full transition-all shadow-sm">
+              <X size={20} className="text-slate-800" />
+            </button>
+            <div className="w-full relative bg-slate-100 shrink-0 flex items-center justify-center p-8 min-h-[50vh]">
+              {selectedCertificate.type === "image" ? (
+                <Image
+                  src={selectedCertificate.file}
+                  alt={selectedCertificate.title}
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto max-h-[75vh] object-contain shadow-md rounded-xl"
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center">
+                  <iframe 
+                    src={`${selectedCertificate.file}#view=FitH`} 
+                    className="w-full h-[75vh] rounded-xl shadow-md bg-white border-0 hidden md:block" 
+                    title={selectedCertificate.title}
+                  />
+                  <div className="w-full md:hidden flex flex-col items-center justify-center py-12 px-4 bg-white rounded-xl shadow-sm border border-slate-200">
+                    <FileText size={64} className="text-blue-500 mb-4" />
+                    <h4 className="text-xl font-semibold text-slate-800 mb-2 text-center">PDF Document</h4>
+                    <p className="text-slate-500 mb-8 text-center text-sm px-4">Tap the button below to open and view the PDF document in your browser.</p>
+                    <a href={selectedCertificate.file} target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all shadow-md flex items-center gap-2 active:scale-95">
+                      <FileText size={18} />
+                      Open PDF Document
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="p-6 sm:p-8 bg-white border-t border-slate-100 text-center">
+              <h3 className="text-2xl sm:text-3xl font-outfit font-semibold text-slate-900">{selectedCertificate.title}</h3>
             </div>
           </div>
         </div>
